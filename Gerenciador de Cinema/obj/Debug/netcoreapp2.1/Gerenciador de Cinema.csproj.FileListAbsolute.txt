@@ -1,0 +1,35 @@
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\bin\Debug\netcoreapp2.1\Gerenciador de Cinema.deps.json
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\bin\Debug\netcoreapp2.1\Gerenciador de Cinema.runtimeconfig.json
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\bin\Debug\netcoreapp2.1\Gerenciador de Cinema.runtimeconfig.dev.json
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\bin\Debug\netcoreapp2.1\Gerenciador de Cinema.dll
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\bin\Debug\netcoreapp2.1\Gerenciador de Cinema.pdb
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\bin\Debug\netcoreapp2.1\Gerenciador de Cinema.Views.dll
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\bin\Debug\netcoreapp2.1\Gerenciador de Cinema.Views.pdb
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.csprojAssemblyReference.cache
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.AssemblyInfoInputs.cache
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.AssemblyInfo.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.csproj.CoreCompileInputs.cache
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.RazorAssemblyInfo.cache
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.RazorAssemblyInfo.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.TagHelpers.input.cache
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.TagHelpers.output.cache
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.RazorCoreGenerate.cache
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.RazorTargetAssemblyInfo.cache
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.RazorTargetAssemblyInfo.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.Views.pdb
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.dll
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.pdb
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.genruntimeconfig.cache
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.csproj.CopyComplete
