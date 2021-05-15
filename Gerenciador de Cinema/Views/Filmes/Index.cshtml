@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Gerenciador_de_Cinema.Models.Filmes>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Filmes";
 }
 
-<h2>Index</h2>
+<h2>Filmes</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Cadastre um novo</a>
 </p>
 <table class="table">
     <thead>
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.duracao)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id_filme">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_filme">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_filme">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.id_filme">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.id_filme">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_filme">Deletar</a>
             </td>
         </tr>
 }

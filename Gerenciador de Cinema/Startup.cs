@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Gerenciador_de_Cinema.Data;
 
+
 namespace Gerenciador_de_Cinema
 {
     public class Startup
@@ -33,6 +34,8 @@ namespace Gerenciador_de_Cinema
 
             services.AddDbContext<Gerenciador_de_CinemaContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("Gerenciador_de_CinemaContext")));
+
+            //services.AddScoped<SeedingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
