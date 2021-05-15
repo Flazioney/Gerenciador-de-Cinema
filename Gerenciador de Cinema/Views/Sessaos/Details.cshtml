@@ -1,0 +1,54 @@
+﻿@model Gerenciador_de_Cinema.Models.Sessao
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sessao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.data_exb)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.data_exb)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.hr_ini)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.hr_ini)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.hr_fim)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.hr_fim)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.valor_ing)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.valor_ing)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.id_filme)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id_filme)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.id_sala)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id_sala)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id_sessao">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

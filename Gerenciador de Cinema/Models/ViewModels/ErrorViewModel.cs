@@ -1,5 +1,3 @@
-using System;
-
 namespace Gerenciador_de_Cinema.Models.ViewModels
 {
     public class ErrorViewModel

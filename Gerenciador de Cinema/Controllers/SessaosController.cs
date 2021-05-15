@@ -10,22 +10,22 @@ using Gerenciador_de_Cinema.Models;
 
 namespace Gerenciador_de_Cinema.Controllers
 {
-    public class FilmesController : Controller
+    public class SessaosController : Controller
     {
         private readonly Gerenciador_de_CinemaContext _context;
 
-        public FilmesController(Gerenciador_de_CinemaContext context)
+        public SessaosController(Gerenciador_de_CinemaContext context)
         {
             _context = context;
         }
 
-        // GET: Filmes
+        // GET: Sessaos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Filmes.ToListAsync());
+            return View(await _context.Sessao.ToListAsync());
         }
 
-        // GET: Filmes/Details/5
+        // GET: Sessaos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace Gerenciador_de_Cinema.Controllers
                 return NotFound();
             }
 
-            var filmes = await _context.Filmes
-                .FirstOrDefaultAsync(m => m.id_filme == id);
-            if (filmes == null)
+            var sessao = await _context.Sessao
+                .FirstOrDefaultAsync(m => m.id_sessao == id);
+            if (sessao == null)
             {
                 return NotFound();
             }
 
-            return View(filmes);
+            return View(sessao);
         }
 
-        // GET: Filmes/Create
+        // GET: Sessaos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Filmes/Create
+        // POST: Sessaos/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_filme,Titulo,Descricao,duracao")] Filmes filmes)
+        public async Task<IActionResult> Create([Bind("id_sessao,data_exb,hr_ini,hr_fim,valor_ing,id_filme,id_sala")] Sessao sessao)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(filmes);
+                _context.Add(sessao);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(filmes);
+            return View(sessao);
         }
 
-        // GET: Filmes/Edit/5
+        // GET: Sessaos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace Gerenciador_de_Cinema.Controllers
                 return NotFound();
             }
 
-            var filmes = await _context.Filmes.FindAsync(id);
-            if (filmes == null)
+            var sessao = await _context.Sessao.FindAsync(id);
+            if (sessao == null)
             {
                 return NotFound();
             }
-            return View(filmes);
+            return View(sessao);
         }
 
-        // POST: Filmes/Edit/5
+        // POST: Sessaos/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_filme,Titulo,Descricao,duracao")] Filmes filmes)
+        public async Task<IActionResult> Edit(int id, [Bind("id_sessao,data_exb,hr_ini,hr_fim,valor_ing,id_filme,id_sala")] Sessao sessao)
         {
-            if (id != filmes.id_filme)
+            if (id != sessao.id_sessao)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace Gerenciador_de_Cinema.Controllers
             {
                 try
                 {
-                    _context.Update(filmes);
+                    _context.Update(sessao);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FilmesExists(filmes.id_filme))
+                    if (!SessaoExists(sessao.id_sessao))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace Gerenciador_de_Cinema.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(filmes);
+            return View(sessao);
         }
 
-        // GET: Filmes/Delete/5
+        // GET: Sessaos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace Gerenciador_de_Cinema.Controllers
                 return NotFound();
             }
 
-            var filmes = await _context.Filmes
-                .FirstOrDefaultAsync(m => m.id_filme == id);
-            if (filmes == null)
+            var sessao = await _context.Sessao
+                .FirstOrDefaultAsync(m => m.id_sessao == id);
+            if (sessao == null)
             {
                 return NotFound();
             }
 
-            return View(filmes);
+            return View(sessao);
         }
 
-        // POST: Filmes/Delete/5
+        // POST: Sessaos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var filmes = await _context.Filmes.FindAsync(id);
-            _context.Filmes.Remove(filmes);
+            var sessao = await _context.Sessao.FindAsync(id);
+            _context.Sessao.Remove(sessao);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool FilmesExists(int id)
+        private bool SessaoExists(int id)
         {
-            return _context.Filmes.Any(e => e.id_filme == id);
+            return _context.Sessao.Any(e => e.id_sessao == id);
         }
     }
 }

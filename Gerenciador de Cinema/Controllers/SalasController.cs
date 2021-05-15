@@ -10,22 +10,22 @@ using Gerenciador_de_Cinema.Models;
 
 namespace Gerenciador_de_Cinema.Controllers
 {
-    public class FilmesController : Controller
+    public class SalasController : Controller
     {
         private readonly Gerenciador_de_CinemaContext _context;
 
-        public FilmesController(Gerenciador_de_CinemaContext context)
+        public SalasController(Gerenciador_de_CinemaContext context)
         {
             _context = context;
         }
 
-        // GET: Filmes
+        // GET: Salas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Filmes.ToListAsync());
+            return View(await _context.Salas.ToListAsync());
         }
 
-        // GET: Filmes/Details/5
+        // GET: Salas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace Gerenciador_de_Cinema.Controllers
                 return NotFound();
             }
 
-            var filmes = await _context.Filmes
-                .FirstOrDefaultAsync(m => m.id_filme == id);
-            if (filmes == null)
+            var salas = await _context.Salas
+                .FirstOrDefaultAsync(m => m.id_sala == id);
+            if (salas == null)
             {
                 return NotFound();
             }
 
-            return View(filmes);
+            return View(salas);
         }
 
-        // GET: Filmes/Create
+        // GET: Salas/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Filmes/Create
+        // POST: Salas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_filme,Titulo,Descricao,duracao")] Filmes filmes)
+        public async Task<IActionResult> Create([Bind("id_sala,Nome,qtd_assentos")] Salas salas)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(filmes);
+                _context.Add(salas);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(filmes);
+            return View(salas);
         }
 
-        // GET: Filmes/Edit/5
+        // GET: Salas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace Gerenciador_de_Cinema.Controllers
                 return NotFound();
             }
 
-            var filmes = await _context.Filmes.FindAsync(id);
-            if (filmes == null)
+            var salas = await _context.Salas.FindAsync(id);
+            if (salas == null)
             {
                 return NotFound();
             }
-            return View(filmes);
+            return View(salas);
         }
 
-        // POST: Filmes/Edit/5
+        // POST: Salas/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_filme,Titulo,Descricao,duracao")] Filmes filmes)
+        public async Task<IActionResult> Edit(int id, [Bind("id_sala,Nome,qtd_assentos")] Salas salas)
         {
-            if (id != filmes.id_filme)
+            if (id != salas.id_sala)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace Gerenciador_de_Cinema.Controllers
             {
                 try
                 {
-                    _context.Update(filmes);
+                    _context.Update(salas);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FilmesExists(filmes.id_filme))
+                    if (!SalasExists(salas.id_sala))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace Gerenciador_de_Cinema.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(filmes);
+            return View(salas);
         }
 
-        // GET: Filmes/Delete/5
+        // GET: Salas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace Gerenciador_de_Cinema.Controllers
                 return NotFound();
             }
 
-            var filmes = await _context.Filmes
-                .FirstOrDefaultAsync(m => m.id_filme == id);
-            if (filmes == null)
+            var salas = await _context.Salas
+                .FirstOrDefaultAsync(m => m.id_sala == id);
+            if (salas == null)
             {
                 return NotFound();
             }
 
-            return View(filmes);
+            return View(salas);
         }
 
-        // POST: Filmes/Delete/5
+        // POST: Salas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var filmes = await _context.Filmes.FindAsync(id);
-            _context.Filmes.Remove(filmes);
+            var salas = await _context.Salas.FindAsync(id);
+            _context.Salas.Remove(salas);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool FilmesExists(int id)
+        private bool SalasExists(int id)
         {
-            return _context.Filmes.Any(e => e.id_filme == id);
+            return _context.Salas.Any(e => e.id_sala == id);
         }
     }
 }
