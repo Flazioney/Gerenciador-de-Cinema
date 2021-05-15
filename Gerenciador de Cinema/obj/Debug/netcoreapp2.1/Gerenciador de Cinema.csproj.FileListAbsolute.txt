@@ -33,3 +33,5 @@ C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciad
 C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.pdb
 C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.genruntimeconfig.cache
 C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Gerenciador de Cinema.csproj.CopyComplete
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Conta\Login.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Filmes\Index.cshtml.g.cs
