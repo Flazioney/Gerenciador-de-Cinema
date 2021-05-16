@@ -22,7 +22,11 @@ namespace Gerenciador_de_Cinema.Controllers
         // GET: Sessaos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Sessao.ToListAsync());
+            var sessao = await _context.Sessao.ToListAsync();
+            var salas = await _context.Salas.ToListAsync();
+            var filmes = await _context.Filmes.ToListAsync();
+
+            return View(sessao);
         }
 
         // GET: Sessaos/Details/5
@@ -32,9 +36,12 @@ namespace Gerenciador_de_Cinema.Controllers
             {
                 return NotFound();
             }
-
             var sessao = await _context.Sessao
-                .FirstOrDefaultAsync(m => m.id_sessao == id);
+               .FirstOrDefaultAsync(m => m.id_sessao == id);
+            var salas = await _context.Salas
+                 .FirstOrDefaultAsync(m => m.id_sala == id);
+            var filmes = await _context.Filmes
+                 .FirstOrDefaultAsync(m => m.id_filme == id);            
             if (sessao == null)
             {
                 return NotFound();

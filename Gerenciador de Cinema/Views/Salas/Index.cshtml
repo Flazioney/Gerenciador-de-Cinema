@@ -6,9 +6,7 @@
 
 <h2>Salas</h2>
 
-<p>
-    <a asp-action="Create">Cadastre um novo</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -31,9 +29,9 @@
                 @Html.DisplayFor(modelItem => item.qtd_assentos)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id_sala">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_sala">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_sala">Delete</a>
+              
+                <a asp-action="Details" asp-route-id="@item.id_sala">Detalhes</a> 
+              
             </td>
         </tr>
 }

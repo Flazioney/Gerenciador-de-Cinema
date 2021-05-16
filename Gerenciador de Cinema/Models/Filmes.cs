@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Collections.Generic;
 
 namespace Gerenciador_de_Cinema.Models
@@ -21,27 +20,22 @@ namespace Gerenciador_de_Cinema.Models
 
         [Required(ErrorMessage = "{0} required")]
         [Display(Name = "Duração Filme")]
-        [DataType(DataType.Time)]
-        public DateTime duracao { get; set; }
+        //[DataType(DataType.Time)]
+        public TimeSpan duracao { get; set; }
 
-        public ICollection<Filmes> Filmess { get; set; } = new List<Filmes>();
-
+        /*
         public Filmes()
         {
 
         }
 
-        public Filmes(int Id_filme,string TTitulo, string DDescricao, DateTime Duracao)
+        public Filmes(int id, string titulo, string descricao, TimeSpan dura)
         {
-            //Id_filme = id_filme;
-            TTitulo = Titulo;
-            DDescricao = Descricao;
-            Duracao = duracao;
+            id = id_filme;
+            titulo = Titulo;
+            Descricao = descricao;
+            duracao = dura;
         }
-        public void AddFilme(Filmes filmes)
-        {
-            Filmess.Add(filmes);
-        }
-
+        */
     }
 }
