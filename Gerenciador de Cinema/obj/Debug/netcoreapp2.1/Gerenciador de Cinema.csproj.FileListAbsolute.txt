@@ -50,3 +50,9 @@ C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciad
 C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Filmes\Details.cshtml.g.cs
 C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Filmes\Edit.cshtml.g.cs
 C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Filmes\Index.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Logins\Create.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Logins\Delete.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Logins\Details.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Logins\Edit.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Logins\Index.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Logins\Menu.cshtml.g.cs

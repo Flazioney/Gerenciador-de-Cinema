@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Gerenciador_de_Cinema.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Gerenciador_de_Cinema.Data;
-using Gerenciador_de_Cinema.Models;
+using System.Threading.Tasks;
 
 namespace Gerenciador_de_Cinema.Controllers
 {
@@ -44,5 +39,5 @@ namespace Gerenciador_de_Cinema.Controllers
         }
 
     }
-    
+
 }

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Gerenciador_de_Cinema.Models;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Gerenciador_de_Cinema.Data
 {
     public class Gerenciador_de_CinemaContext : DbContext
     {
-        public Gerenciador_de_CinemaContext (DbContextOptions<Gerenciador_de_CinemaContext> options)
+        public Gerenciador_de_CinemaContext(DbContextOptions<Gerenciador_de_CinemaContext> options)
             : base(options)
         {
         }
@@ -19,5 +14,7 @@ namespace Gerenciador_de_Cinema.Data
         public DbSet<Gerenciador_de_Cinema.Models.Salas> Salas { get; set; }
 
         public DbSet<Gerenciador_de_Cinema.Models.Sessao> Sessao { get; set; }
+
+        public DbSet<Gerenciador_de_Cinema.Models.Login> Login { get; set; }
     }
 }

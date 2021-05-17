@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Gerenciador_de_Cinema.Data;
+using Gerenciador_de_Cinema.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Gerenciador_de_Cinema.Data;
-using Gerenciador_de_Cinema.Models;
 
 namespace Gerenciador_de_Cinema.Controllers
 {
@@ -41,7 +38,7 @@ namespace Gerenciador_de_Cinema.Controllers
             var salas = await _context.Salas
                  .FirstOrDefaultAsync(m => m.id_sala == id);
             var filmes = await _context.Filmes
-                 .FirstOrDefaultAsync(m => m.id_filme == id);            
+                 .FirstOrDefaultAsync(m => m.id_filme == id);
             if (sessao == null)
             {
                 return NotFound();

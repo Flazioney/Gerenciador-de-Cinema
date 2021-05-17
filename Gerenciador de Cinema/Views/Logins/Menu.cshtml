@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Menu";
+}
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        <a asp-action="Logout">Logout</a>
+    </li>
+</ul>
+<h2>Menu</h2>
+<hr />
+
+<div class="btn-group-vertical">
+    <a asp-action="Filmes" class="btn btn-primary btn-lg">Filmes</a>
+    <a asp-action="Salas" class="btn btn-primary btn-lg">Salas</a>
+    <a asp-action="Sessoes" class="btn btn-primary btn-lg">Sessoes</a>
+    <a class="btn btn-default" asp-action="Logout">Logout</a>
+</div>
