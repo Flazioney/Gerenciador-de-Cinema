@@ -38,14 +38,14 @@ namespace Gerenciador_de_Cinema.Models
             }
         }  
         
-        public string DeletarSessoes(int id)
+        public string DeletarSessoes(Sessao sessoes)
         {
             using (SqlConnection con = new SqlConnection(GetConexao()))
             {
                 SqlCommand cmd = new SqlCommand("delpcdSe", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@idses", id);
+                cmd.Parameters.AddWithValue("@idses", sessoes.id_sessao);
 
                 con.Open();              
                     string resultado = cmd.ExecuteScalar().ToString();

@@ -16,5 +16,7 @@ namespace Gerenciador_de_Cinema.Data
         public DbSet<Gerenciador_de_Cinema.Models.Sessao> Sessao { get; set; }
 
         public DbSet<Gerenciador_de_Cinema.Models.Login> Login { get; set; }
+
+        
     }
 }

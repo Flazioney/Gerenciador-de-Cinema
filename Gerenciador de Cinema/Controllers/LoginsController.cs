@@ -132,6 +132,7 @@ namespace Gerenciador_de_Cinema.Controllers
             {
                 string LoginStatus = _autentica.ValidarLogin(login);
 
+               
                 if (LoginStatus == "Sucesso")
                 {
                     var claims = new List<Claim>

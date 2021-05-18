@@ -58,3 +58,4 @@ C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciad
 C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Logins\Menu.cshtml.g.cs
 C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
 C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\_AdminStart.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

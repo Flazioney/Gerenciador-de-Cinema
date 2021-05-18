@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+U0wjs1wznm0XZygfaO7lxvfuMNXTynUfGVTgyvGQEUre6L59XCGrf4CuvOOpJ76Cns2MIiF32QSvGh5MjY+WQ==",
+  "dgSpecHash": "o2ZThbyPy8BwkEr2T18dRHM2siKKwXmnWLvc8kFZ6gpI3qVSUiGYn6hYure4BbCZ8ojIhPa+m2v8HKwSmwdl6A==",
   "success": true,
   "projectFilePath": "C:\\Users\\flazioney.assis\\Documents\\Teste pratico\\Gerenciador de Cinema\\Gerenciador de Cinema\\Gerenciador de Cinema.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\flazioney.assis\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\flazioney.assis\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\flazioney.assis\\.nuget\\packages\\microsoft.aspnetcore\\2.1.7\\microsoft.aspnetcore.2.1.7.nupkg.sha512",
     "C:\\Users\\flazioney.assis\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.1.1\\microsoft.aspnetcore.antiforgery.2.1.1.nupkg.sha512",

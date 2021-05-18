@@ -5,13 +5,26 @@
     <StartupObject>Gerenciador_de_Cinema.Program</StartupObject>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <UserSecretsId>69d8f046-bc83-4c67-b065-11a7291af3cf</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="imhere\**" />
+    <Compile Remove="src\**" />
+    <Content Remove="imhere\**" />
+    <Content Remove="src\**" />
+    <EmbeddedResource Remove="imhere\**" />
+    <EmbeddedResource Remove="src\**" />
+    <None Remove="imhere\**" />
+    <None Remove="src\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Data\SeedingService.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
@@ -25,10 +38,6 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="src\" />
   </ItemGroup>
 
   <ItemGroup>

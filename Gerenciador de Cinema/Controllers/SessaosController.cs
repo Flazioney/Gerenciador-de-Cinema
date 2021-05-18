@@ -139,6 +139,7 @@ namespace Gerenciador_de_Cinema.Controllers
 
             var sessao = await _context.Sessao
                     .FirstOrDefaultAsync(m => m.id_sessao == id);
+            
             if (sessao == null)
             {
                 return NotFound();
@@ -154,48 +155,15 @@ namespace Gerenciador_de_Cinema.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            
+            string login = _autentica.DeletarSessoes(id);
+            await HttpContext.SignInAsync(login);
 
 
-            string sessao = _autentica.DeletarSessoes(id);
+            _context.Login.Remove(login);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
 
-            if (sessao == "Sucesso")
-            {
-
-                //return RedirectToAction(nameof(Index));
-                //var login = await _context.Login.FindAsync(id);
-                //_context.Login.Remove(login);
-
-
-                var claims = new List<Claim>
-                    {
-                        new Claim(ClaimTypes.Name, sessao)
-                    };
-
-                ClaimsIdentity userIdentity = new ClaimsIdentity(claims, "id");
-                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
-
-                await HttpContext.SignInAsync(principal);
-
-
-                if (User.Identity.IsAuthenticated)
-                {
-                    TempData["DeleteFalhou"] = "Parece que deu certo a bagaça";
-                    return RedirectToAction(nameof(Index));
-                    
-                }
-                else
-                {
-                    TempData["DeleteFalhou"] = "O delete falhou por que não encontrou o id ";
-                    return RedirectToAction(nameof(Index));
-                }
-            }
-
-
-            else
-            {
-                TempData["DeleteFalhou"] = "Ta passando pelo else por algum motivo de conversao de dados ";
-                return View();
-            }
         }
         private bool SessaoExists(int id)
         {
