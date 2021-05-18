@@ -8,6 +8,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
+
 namespace Gerenciador_de_Cinema.Controllers
 {
     public class LoginsController : Controller
@@ -31,6 +32,8 @@ namespace Gerenciador_de_Cinema.Controllers
         public async Task<IActionResult> Index()
         {
             return View();
+
+         
         }
 
         // GET: Logins/Details/5
@@ -115,7 +118,7 @@ namespace Gerenciador_de_Cinema.Controllers
         [HttpGet]
         public IActionResult Menu()
         {
-            return View();
+            return RedirectToAction(nameof(Menu));
         }      
 
         [HttpPost]
@@ -142,11 +145,11 @@ namespace Gerenciador_de_Cinema.Controllers
                     await HttpContext.SignInAsync(principal);
 
                     if (User.Identity.IsAuthenticated)
-                        return RedirectToAction(nameof(Menu));
+                        return RedirectToAction("Index", "Sessaos");
                     else
                     {
                         TempData["LoginFalhou"] = "O login Falhou. Informe as credenciais corretas " + User.Identity.Name;
-                        return RedirectToAction(nameof(Menu));
+                        return RedirectToAction(nameof(Index));
                     }
                 }
                 else

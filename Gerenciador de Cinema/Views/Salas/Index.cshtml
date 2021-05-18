@@ -9,31 +9,49 @@
 
 <table class="table">
     <thead>
-        <tr>
+        <tr class="active">
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
             <th>
                 @Html.DisplayNameFor(model => model.qtd_assentos)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.qtd_assentos)
-            </td>
-            <td>
-              
-                <a asp-action="Details" asp-route-id="@item.id_sala">Detalhes</a> 
-              
-            </td>
-        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.qtd_assentos)
+                </td>
+                <td>
+                </td>
+            </tr>
 }
+        <hr />
     </tbody>
 </table>

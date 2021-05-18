@@ -123,19 +123,28 @@ namespace Gerenciador_de_Cinema.Controllers
         // GET: Sessaos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
             }
 
+            Sessao sessaos = new Sessao();
+            if (sessaos.data_exb >= sessaos.data_exb.AddDays(10))
+            {
+                return NotFound();
+            }
             var sessao = await _context.Sessao
-                .FirstOrDefaultAsync(m => m.id_sessao == id);
+                    .FirstOrDefaultAsync(m => m.id_sessao == id);
+
             if (sessao == null)
             {
                 return NotFound();
             }
 
             return View(sessao);
+
+
         }
 
         // POST: Sessaos/Delete/5
@@ -143,6 +152,7 @@ namespace Gerenciador_de_Cinema.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+
             var sessao = await _context.Sessao.FindAsync(id);
             _context.Sessao.Remove(sessao);
             await _context.SaveChangesAsync();

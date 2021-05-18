@@ -21,4 +21,5 @@ namespace Gerenciador_de_Cinema.Models
         public int tipoAcesso { get; set; }
 
     }
+
 }

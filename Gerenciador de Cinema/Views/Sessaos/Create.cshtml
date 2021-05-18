@@ -32,11 +32,14 @@
                 <input asp-for="valor_ing" class="form-control" />
                 <span asp-validation-for="valor_ing" class="text-danger"></span>
             </div>
+
+
             <div class="form-group">
-                <label asp-for="id_filme" class="control-label"></label>
-                <input asp-for="id_filme" class="form-control" />
-                <span asp-validation-for="id_filme" class="text-danger"></span>
+                <label asp-for="Filmes.Titulo" class="control-label"></label>
+                <input asp-for="Filmes.Titulo" class="form-control"/>
+                    <span asp-validation-for="Filmes.Titulo" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="id_sala" class="control-label"></label>
                 <input asp-for="id_sala" class="form-control" />
@@ -45,12 +48,13 @@
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-default" />
             </div>
+
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {

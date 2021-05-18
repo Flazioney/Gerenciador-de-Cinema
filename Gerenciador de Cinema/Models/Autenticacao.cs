@@ -36,6 +36,24 @@ namespace Gerenciador_de_Cinema.Models
 
                 return resultado;
             }
+        }  
+        
+        public string DeletarSessoes(Sessao sessaos)
+        {
+            using (SqlConnection con = new SqlConnection(GetConexao()))
+            {
+                SqlCommand cmd = new SqlCommand("deletarSessao", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", sessaos.id_sessao);
+               
+               
+                con.Open();              
+                    string resultado = cmd.ExecuteScalar().ToString();
+                con.Close();
+
+                return resultado;
+            }
         }
     }
 }

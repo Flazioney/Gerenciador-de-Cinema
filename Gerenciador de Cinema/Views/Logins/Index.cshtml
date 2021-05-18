@@ -3,16 +3,20 @@
 @{
     ViewData["Title"] = "Logar";
 }
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
 
-<header style="align-self: center;">
+<body>
+
     <h2>Gerenciador de Cinema</h2>
     <hr />
-    <div class="row">
+    <div class="row" style="align-content: center;">
         <div class="col-md-4">
-            @if (TempData["LoginFalhou"] != null)
-            {
-                <p class="alert alert-danger">@TempData["LoginFalhou"]</p>
-            }
+            @*@if (TempData["LoginFalhou"] == null)
+                {
+                    <p class="alert alert-danger">@TempData["LoginFalhou"]</p>
+                }*@
             <div class="right">
                 <form asp-action="Menu">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -37,7 +41,8 @@
             </div>
         </div>
     </div>
-</header>
+</body>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

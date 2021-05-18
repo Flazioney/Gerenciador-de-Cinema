@@ -9,7 +9,7 @@ namespace Gerenciador_de_Cinema.Models
         [Display(Name = "Salas")]
         public string Nome { get; set; }
 
-        [Display(Name = "Quantidade de Assentos")]
+        [Display(Name = "Qtd. Assentos")]
         public int qtd_assentos { get; set; }
         /*
         public Salas()
