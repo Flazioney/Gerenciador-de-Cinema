@@ -1,9 +1,13 @@
 ﻿using Gerenciador_de_Cinema.Data;
 using Gerenciador_de_Cinema.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+
 
 namespace Gerenciador_de_Cinema.Controllers
 {
@@ -11,12 +15,16 @@ namespace Gerenciador_de_Cinema.Controllers
     {
         private readonly Gerenciador_de_CinemaContext _context;
 
-        public SessaosController(Gerenciador_de_CinemaContext context)
+
+        private readonly IAutenticacao _autentica;
+
+        public SessaosController(IAutenticacao autentica, Gerenciador_de_CinemaContext context)
         {
+            _autentica = autentica;
             _context = context;
         }
 
-        // GET: Sessaos
+       // GET: Sessaos
         public async Task<IActionResult> Index()
         {
             var sessao = await _context.Sessao.ToListAsync();
@@ -129,14 +137,8 @@ namespace Gerenciador_de_Cinema.Controllers
                 return NotFound();
             }
 
-            Sessao sessaos = new Sessao();
-            if (sessaos.data_exb >= sessaos.data_exb.AddDays(10))
-            {
-                return NotFound();
-            }
             var sessao = await _context.Sessao
                     .FirstOrDefaultAsync(m => m.id_sessao == id);
-
             if (sessao == null)
             {
                 return NotFound();
@@ -153,12 +155,48 @@ namespace Gerenciador_de_Cinema.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
 
-            var sessao = await _context.Sessao.FindAsync(id);
-            _context.Sessao.Remove(sessao);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
 
+            string sessao = _autentica.DeletarSessoes(id);
+
+            if (sessao == "Sucesso")
+            {
+
+                //return RedirectToAction(nameof(Index));
+                //var login = await _context.Login.FindAsync(id);
+                //_context.Login.Remove(login);
+
+
+                var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, sessao)
+                    };
+
+                ClaimsIdentity userIdentity = new ClaimsIdentity(claims, "id");
+                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+
+                await HttpContext.SignInAsync(principal);
+
+
+                if (User.Identity.IsAuthenticated)
+                {
+                    TempData["DeleteFalhou"] = "Parece que deu certo a bagaça";
+                    return RedirectToAction(nameof(Index));
+                    
+                }
+                else
+                {
+                    TempData["DeleteFalhou"] = "O delete falhou por que não encontrou o id ";
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+
+
+            else
+            {
+                TempData["DeleteFalhou"] = "Ta passando pelo else por algum motivo de conversao de dados ";
+                return View();
+            }
+        }
         private bool SessaoExists(int id)
         {
             return _context.Sessao.Any(e => e.id_sessao == id);

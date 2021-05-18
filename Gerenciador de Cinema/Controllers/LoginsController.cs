@@ -118,7 +118,7 @@ namespace Gerenciador_de_Cinema.Controllers
         [HttpGet]
         public IActionResult Menu()
         {
-            return RedirectToAction(nameof(Menu));
+            return RedirectToAction(nameof(Index));
         }      
 
         [HttpPost]

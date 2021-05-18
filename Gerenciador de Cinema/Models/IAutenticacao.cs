@@ -4,6 +4,7 @@
     {
         string GetConexao();
         string ValidarLogin(Login login);
+        string DeletarSessoes(int id_sessoes);
     }
 
 }

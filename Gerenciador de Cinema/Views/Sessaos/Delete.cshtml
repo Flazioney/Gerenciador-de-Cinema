@@ -9,6 +9,11 @@
 <h3>Você realmente deseja excluir?</h3>
 <div>
     <h4>Sessões</h4>
+
+    @if (TempData["DeleteFalhou"] != null)
+    {
+        <p class="alert alert-danger">@TempData["DeleteFalhou"]</p>
+    }
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -48,10 +53,10 @@
             @Html.DisplayFor(model => model.id_sala)
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="id_sessao" />
-        <input type="submit" value="Deletar" class="btn btn-default" /> 
+        <input type="submit" value="Deletar" class="btn btn-default" />
         <a asp-action="Index"></a>
     </form>
 </div>
