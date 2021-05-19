@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 
 namespace Gerenciador_de_Cinema.Controllers
@@ -24,7 +25,7 @@ namespace Gerenciador_de_Cinema.Controllers
             _context = context;
         }
 
-       // GET: Sessaos
+        // GET: Sessaos
         public async Task<IActionResult> Index()
         {
             var sessao = await _context.Sessao.ToListAsync();
@@ -68,6 +69,8 @@ namespace Gerenciador_de_Cinema.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_sessao,data_exb,hr_ini,hr_fim,valor_ing,id_filme,id_sala")] Sessao sessao)
         {
+            
+
             if (ModelState.IsValid)
             {
                 _context.Add(sessao);
@@ -129,7 +132,7 @@ namespace Gerenciador_de_Cinema.Controllers
         }
 
         // GET: Sessaos/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
 
             if (id == null)
@@ -137,34 +140,25 @@ namespace Gerenciador_de_Cinema.Controllers
                 return NotFound();
             }
 
-            var sessao = await _context.Sessao
-                    .FirstOrDefaultAsync(m => m.id_sessao == id);
-            
+            var sessao = await _context.Sessao.FindAsync(id);
+                     //.FirstOrDefaultAsync(m => m.id_sessao == id);
+
+           
             if (sessao == null)
             {
                 return NotFound();
             }
 
-            return View(sessao);
+            var q = _autentica.DeletarSessoes(id);
 
-
-        }
-
-        // POST: Sessaos/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            
-            string login = _autentica.DeletarSessoes(id);
-            await HttpContext.SignInAsync(login);
-
-
-            _context.Login.Remove(login);
-            await _context.SaveChangesAsync();
+            TempData["Erro"] = "Não pode ser excluido com menos de 10 dias id sessão " + q ;
             return RedirectToAction(nameof(Index));
 
+            //return View(sessao);
+            
+
         }
+
         private bool SessaoExists(int id)
         {
             return _context.Sessao.Any(e => e.id_sessao == id);

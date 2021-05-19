@@ -36,6 +36,8 @@ namespace Gerenciador_de_Cinema.Models
         public int id_sala { get; set; }
         public virtual Salas Salas { get; set; }
 
+       // public int id { get; set; }
+
 
 
     }

@@ -36,23 +36,26 @@ namespace Gerenciador_de_Cinema.Models
 
                 return resultado;
             }
-        }  
-        
-        public string DeletarSessoes(Sessao sessoes)
+        }
+
+        public string DeletarSessoes(int id)
         {
             using (SqlConnection con = new SqlConnection(GetConexao()))
             {
                 SqlCommand cmd = new SqlCommand("delpcdSe", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@idses", sessoes.id_sessao);
+                cmd.Parameters.AddWithValue("@idses", id);
+                con.Open();
 
-                con.Open();              
-                    string resultado = cmd.ExecuteScalar().ToString();
+                string resultado = cmd.ExecuteScalar().ToString();
                 con.Close();
-
                 return resultado;
+
+
             }
         }
+
+
     }
 }

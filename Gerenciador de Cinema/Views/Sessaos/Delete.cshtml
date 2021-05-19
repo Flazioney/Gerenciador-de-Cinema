@@ -10,10 +10,11 @@
 <div>
     <h4>Sessões</h4>
 
-    @if (TempData["DeleteFalhou"] != null)
+    @if (TempData["Erro"] != null)
     {
-        <p class="alert alert-danger">@TempData["DeleteFalhou"]</p>
+        <p class="alert alert-danger">@TempData["Erro"]</p>
     }
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -57,6 +58,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="id_sessao" />
         <input type="submit" value="Deletar" class="btn btn-default" />
-        <a asp-action="Index"></a>
+        <a asp-action="Index">Voltar</a>
     </form>
 </div>
