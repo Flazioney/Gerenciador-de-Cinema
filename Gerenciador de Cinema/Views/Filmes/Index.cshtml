@@ -12,6 +12,8 @@
 <table class="table">
     <thead>
         <tr>
+           
+            <br />
             <th>
                 @Html.DisplayNameFor(model => model.Titulo)
             </th>
@@ -28,6 +30,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                <img src="/Imagens/VerImagem/@item" />
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Titulo)
             </td>
             <td>
@@ -39,7 +44,10 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.id_filme">Editar</a> |
                 <a asp-action="Details" asp-route-id="@item.id_filme">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_filme">Deletar</a>
+                <a asp-action="Delete" asp-route-id="@item.id_filme">Deletar</a> |
+                <form action="UploadImagem" enctype="multipart/form-data" method="post"> <input type="file" name="arquivos" />
+                <button>Enviar Imagem</button>
+                </form>
             </td>
         </tr>
 }

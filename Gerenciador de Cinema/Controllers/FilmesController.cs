@@ -1,9 +1,19 @@
 ﻿using Gerenciador_de_Cinema.Data;
 using Gerenciador_de_Cinema.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
 
 namespace Gerenciador_de_Cinema.Controllers
 {
@@ -20,6 +30,8 @@ namespace Gerenciador_de_Cinema.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Filmes.ToListAsync());
+            List<int> filmes = _context.Filmes.Select(m => m.id_filme).ToList();
+            return View(filmes);
         }
 
         // GET: Filmes/Details/5
@@ -145,6 +157,33 @@ namespace Gerenciador_de_Cinema.Controllers
         private bool FilmesExists(int id)
         {
             return _context.Filmes.Any(e => e.id_filme == id);
+        }
+
+        [HttpPost]
+        public IActionResult UploadImagem(IList<IFormFile> arquivos)
+        {
+            IFormFile imagemEnviada = arquivos.FirstOrDefault();
+            if (imagemEnviada != null || imagemEnviada.ContentType.ToLower().StartsWith("image/"))
+            {
+                MemoryStream ms = new MemoryStream();
+                imagemEnviada.OpenReadStream().CopyTo(ms);
+                Filmes imagemEntity = new Filmes()
+                {
+                    Titulo = imagemEnviada.Name,
+                    Dados = ms.ToArray(),
+                    ContentType = imagemEnviada.ContentType
+                };
+                _context.Filmes.Add(imagemEntity);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public FileStreamResult VerImagem(int id)
+        {
+            Filmes filmes = _context.Filmes.FirstOrDefault(m => m.id_filme == id);
+            MemoryStream ms = new MemoryStream(filmes.Dados);
+            return new FileStreamResult(ms, filmes.ContentType);
         }
     }
 }

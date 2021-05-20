@@ -30,6 +30,17 @@
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-default" />
             </div>
+            <hr>
+            <form action="UploadImagem" enctype="multipart/form-data" method="post">
+                <input type="file" name="arquivos" />
+                <br />
+                <button>Enviar Imagem</button>
+            </form>
+            @*@foreach (var item in Model)
+            {
+                <img src="/Imagens/VerImagem/@item" />
+            }*@
+            <br />
         </form>
     </div>
 </div>

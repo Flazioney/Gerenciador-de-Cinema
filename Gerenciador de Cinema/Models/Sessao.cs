@@ -13,11 +13,12 @@ namespace Gerenciador_de_Cinema.Models
         [DataType(DataType.Date)]
         public DateTime data_exb { get; set; }
 
+        //[Required(ErrorMessage = "{0} required")]
         [Required(ErrorMessage = "{0} required")]
         [Display(Name = "Inicio do Filme")]
         public TimeSpan hr_ini { get; set; }
 
-        //[Required(ErrorMessage = "{0} required")]
+
         [Display(Name = "Fim do Filme")]
         public TimeSpan hr_fim { get; set; }
 
@@ -36,9 +37,9 @@ namespace Gerenciador_de_Cinema.Models
         public int id_sala { get; set; }
         public virtual Salas Salas { get; set; }
 
-       // public int id { get; set; }
+        // public int id { get; set; }
 
 
-
+        
     }
 }

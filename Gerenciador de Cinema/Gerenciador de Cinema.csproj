@@ -55,4 +55,9 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Imagens\VerImagem\" />
+    <Folder Include="Imagens\UploadImagem\" />
+  </ItemGroup>
+
 </Project>

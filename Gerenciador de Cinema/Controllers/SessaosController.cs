@@ -8,6 +8,11 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 
 namespace Gerenciador_de_Cinema.Controllers
@@ -67,14 +72,15 @@ namespace Gerenciador_de_Cinema.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_sessao,data_exb,hr_ini,hr_fim,valor_ing,id_filme,id_sala")] Sessao sessao)
+        public async Task<IActionResult> Create([Bind("id_sessao,data_exb,hr_ini,valor_ing,id_filme,id_sala")] Sessao sessao)
         {
             
 
             if (ModelState.IsValid)
             {
-                _context.Add(sessao);
-                await _context.SaveChangesAsync();
+                var q = _autentica.InserirSessoes(sessao);
+
+                TempData["Erro"] = "Não pode ser excluido com menos de 10 dias id sessão " + q;
                 return RedirectToAction(nameof(Index));
             }
             return View(sessao);
@@ -163,5 +169,8 @@ namespace Gerenciador_de_Cinema.Controllers
         {
             return _context.Sessao.Any(e => e.id_sessao == id);
         }
+
+
+      
     }
 }

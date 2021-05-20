@@ -56,6 +56,29 @@ namespace Gerenciador_de_Cinema.Models
             }
         }
 
+        public string InserirSessoes(Sessao sessao)
+        {
+            using (SqlConnection con = new SqlConnection(GetConexao()))
+            {
+                SqlCommand cmd = new SqlCommand("pcdSessao", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@dataexb", sessao.data_exb);
+                cmd.Parameters.AddWithValue("@hrini", sessao.hr_ini);               
+                cmd.Parameters.AddWithValue("@valoring", sessao.valor_ing);
+                cmd.Parameters.AddWithValue("@idfilme", sessao.id_filme);
+                cmd.Parameters.AddWithValue("@idsala", sessao.id_sala);
+                
+                con.Open();
+
+                string resultado = cmd.ExecuteScalar().ToString();
+                con.Close();
+                return resultado;
+
+
+            }
+        }
+
 
     }
 }
