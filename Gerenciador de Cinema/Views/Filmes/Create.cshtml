@@ -28,19 +28,13 @@
                 <span asp-validation-for="duracao" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Dados" class="control-label"></label>
+                <input type="file" asp-for="Dados" name="upload" class="form-control" />
+                <span asp-validation-for="Dados" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-default" />
             </div>
-            <hr>
-            <form action="UploadImagem" enctype="multipart/form-data" method="post">
-                <input type="file" name="arquivos" />
-                <br />
-                <button>Enviar Imagem</button>
-            </form>
-            @*@foreach (var item in Model)
-            {
-                <img src="/Imagens/VerImagem/@item" />
-            }*@
-            <br />
         </form>
     </div>
 </div>

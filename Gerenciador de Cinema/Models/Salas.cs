@@ -11,17 +11,6 @@ namespace Gerenciador_de_Cinema.Models
 
         [Display(Name = "Qtd. Assentos")]
         public int qtd_assentos { get; set; }
-        /*
-        public Salas()
-        {
-
-        }
-
-        public Salas(int id, string nome,  int qtd)
-        {
-            id_sala = id;
-            Nome = nome;
-            qtd_assentos = qtd;
-        }*/
+       
     }
 }

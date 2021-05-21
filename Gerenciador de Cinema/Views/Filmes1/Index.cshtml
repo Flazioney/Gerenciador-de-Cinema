@@ -1,21 +1,17 @@
 ﻿@model IEnumerable<Gerenciador_de_Cinema.Models.Filmes>
 
 @{
-    ViewData["Title"] = "Menu";
+    ViewData["Title"] = "Index";
 }
 
-<h2>Filmes</h2>
+<h2>Index</h2>
 
 <p>
-    <a asp-action="Create">Criar um novo</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Dados)
-            </th>
-            <br />
             <th>
                 @Html.DisplayNameFor(model => model.Titulo)
             </th>
@@ -25,16 +21,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.duracao)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dados)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                <img src="@Url.Action("Render", "Images", new { item.id_filme })"
-                     style="width:100px; height:100px" />
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Titulo)
             </td>
@@ -43,11 +38,14 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.duracao)
-            </td>            
+            </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id_filme">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.id_filme">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_filme">Deletar</a> 
+                @Html.DisplayFor(modelItem => item.Dados)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_filme">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id_filme">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_filme">Delete</a>
             </td>
         </tr>
 }

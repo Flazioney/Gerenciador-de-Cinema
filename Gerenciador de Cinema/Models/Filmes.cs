@@ -22,9 +22,10 @@ namespace Gerenciador_de_Cinema.Models
         //[DataType(DataType.Time)]
         public TimeSpan duracao { get; set; }
 
-
+        [DataType(DataType.Upload)]
         public byte[] Dados { get; set; }
-        public string ContentType { get; set; }
+
+       // public string ContentType { get; set; }
 
 
  
