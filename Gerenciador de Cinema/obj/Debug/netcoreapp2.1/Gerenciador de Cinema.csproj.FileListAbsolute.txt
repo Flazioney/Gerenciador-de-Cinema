@@ -59,8 +59,8 @@ C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciad
 C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
 C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\_AdminStart.cshtml.g.cs
 C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
-C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Filmes1\Create.cshtml.g.cs
-C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Filmes1\Delete.cshtml.g.cs
-C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Filmes1\Details.cshtml.g.cs
-C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Filmes1\Edit.cshtml.g.cs
-C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Filmes1\Index.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Imagems\Create.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Imagems\Delete.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Imagems\Details.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Imagems\Edit.cshtml.g.cs
+C:\Users\flazioney.assis\Documents\Teste pratico\Gerenciador de Cinema\Gerenciador de Cinema\obj\Debug\netcoreapp2.1\Razor\Views\Imagems\Index.cshtml.g.cs

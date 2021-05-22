@@ -12,10 +12,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Dados)
-            </th>
-            <br />
+           
             <th>
                 @Html.DisplayNameFor(model => model.Titulo)
             </th>
@@ -31,10 +28,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                <img src="@Url.Action("Render", "Images", new { item.id_filme })"
-                     style="width:100px; height:100px" />
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Titulo)
             </td>
@@ -43,11 +37,15 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.duracao)
-            </td>            
+            </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id_filme">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.id_filme">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_filme">Deletar</a> 
+                <img src="@Url.Action("Models.Render", "Filmes", new { item.id_filme })"
+                     style="width:100px; height:100px" />
+            </td>
+            <th></th>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_filme">Editar</a> |               
+                <a asp-action="Delete" asp-route-id="@item.id_filme">Deletar</a>
             </td>
         </tr>
 }

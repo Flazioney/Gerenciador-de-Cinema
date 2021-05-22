@@ -6,6 +6,7 @@
         string ValidarLogin(Login login);
         string DeletarSessoes(int id_sessoes);
         string InserirSessoes(Sessao sessao);
+        string UpdateFilme(Filmes filmes);
     }
 
 }

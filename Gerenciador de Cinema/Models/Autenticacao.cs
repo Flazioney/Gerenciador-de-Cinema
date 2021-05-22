@@ -79,6 +79,30 @@ namespace Gerenciador_de_Cinema.Models
             }
         }
 
+        public string UpdateFilme(Filmes filmes) 
+        {
+            using (SqlConnection con = new SqlConnection(GetConexao()))
+            {
+                SqlCommand cmd = new SqlCommand("pcdUpdtFilme", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Tid", filmes.id_filme);
+                cmd.Parameters.AddWithValue("@Titulo", filmes.Titulo);
+                cmd.Parameters.AddWithValue("@Descricao",filmes.Descricao);
+                cmd.Parameters.AddWithValue("@duracao", filmes.duracao);
+                cmd.Parameters.AddWithValue("@dados", filmes.Dados);
+                cmd.Parameters.AddWithValue("@ContentType", filmes.ContentType);
+
+                con.Open();
+
+                string resultado = cmd.ExecuteScalar().ToString();
+                con.Close();
+                return resultado;
+
+
+            }
+
+        }
+
 
     }
 }

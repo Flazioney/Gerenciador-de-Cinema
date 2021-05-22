@@ -21,10 +21,12 @@ namespace Gerenciador_de_Cinema.Controllers
     public class FilmesController : Controller
     {
         private readonly Gerenciador_de_CinemaContext _context;
+        private readonly IAutenticacao _autentica;
 
-        public FilmesController(Gerenciador_de_CinemaContext context)
+        public FilmesController(Gerenciador_de_CinemaContext context, IAutenticacao autentica)
         {
             _context = context;
+            _autentica = autentica;
         }
 
         // GET: Filmes
@@ -63,37 +65,43 @@ namespace Gerenciador_de_Cinema.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_filme,Titulo,Descricao,duracao")] Filmes filmes, IFormFile upload)
+        public IActionResult Create(Filmes filmes, IFormFile Img, [FromServices] Gerenciador_de_CinemaContext db)
         {
+                
+                filmes.Dados = Img.ToByteArray();
+                filmes.Length = (int)Img.Length;
+                filmes.Extension = Img.GetExtension();
+                filmes.ContentType = Img.ContentType;
+                db.Filmes.Add(filmes);
+                db.SaveChanges();
+                return RedirectToAction("Index");
            
-            if (ModelState.IsValid)
+        }
+
+
+        [HttpGet]
+        [ResponseCache(Duration = 3600)]
+        public FileResult Render(int id, [FromServices] Gerenciador_de_CinemaContext db)
+        {            
+
+            var item = db.Filmes
+                .Where(x => x.id_filme == id)
+                .Select(s => new { s.Dados, s.ContentType })
+                .FirstOrDefault();
+
+            if (item != null)
             {
-                //if (upload != null && upload.Length > 0)
-                //{
-                //    var arqImagem = new Filmes
-                //    {
-                //        ContentType = upload.ContentType
-                //    };
-                //    var reader = new BinaryReader(upload.OpenReadStream());
-                //    arqImagem.Dados = reader.ReadBytes((int)upload.Length);
-                //    filmes.Dados = arqImagem.Dados;
-                //    filmes.ContentType = arqImagem.ContentType;
-                    _context.Add(filmes);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-
-               
-
-                TempData["mensagem"] = string.Format("{0}  : foi incluído com sucesso", filmes.Titulo);
-                return RedirectToAction("filmes");
+                return File(item.Dados, item.ContentType);
             }
-            return View(filmes);
+
+            return null;
         }
 
         // GET: Filmes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+
+
             if (id == null)
             {
                 return NotFound();
@@ -110,9 +118,9 @@ namespace Gerenciador_de_Cinema.Controllers
         // POST: Filmes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_filme,Titulo,Descricao,duracao,Dados")] Filmes filmes)
+        public async Task<IActionResult> Edit(int id, [Bind("Titulo,Descricao,duracao,Dados,ContentType")] Filmes filmes, IList<IFormFile> Dados)
         {
             if (id != filmes.id_filme)
             {
@@ -123,8 +131,24 @@ namespace Gerenciador_de_Cinema.Controllers
             {
                 try
                 {
-                    _context.Update(filmes);
-                    await _context.SaveChangesAsync();
+                    IFormFile imagemEnviada = Dados.FirstOrDefault();
+                    if (imagemEnviada != null || imagemEnviada.ContentType.ToLower().StartsWith("image/"))
+                    {
+                        MemoryStream ms = new MemoryStream();
+                        imagemEnviada.OpenReadStream().CopyTo(ms);
+                        Filmes imagemEntity = new Filmes()
+                        {
+
+                            Titulo = imagemEnviada.Name,
+                            Dados = ms.ToArray(),
+                            ContentType = imagemEnviada.ContentType
+                        };
+
+                        var q = _autentica.UpdateFilme(filmes);
+
+                        TempData["Erro"] = "Não pode ser excluido com menos de 10 dias id sessão " + q;
+                        return RedirectToAction(nameof(Index));
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
