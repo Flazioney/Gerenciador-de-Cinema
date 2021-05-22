@@ -34,8 +34,34 @@
         </tr>
     </thead>
     <tbody>
-       
-        </tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_exb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hr_ini)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hr_fim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valor_ing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salas.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Filmes.Titulo)
+            </td>
+            <td>
+                <img src="@Url.Action("Models.Render", "Filmes", new { item.id_filme })"
+                     style="width:100px; height:100px" />
+            </td>
+        </tr>
+        }
+    </tbody>
 </table>
 
 

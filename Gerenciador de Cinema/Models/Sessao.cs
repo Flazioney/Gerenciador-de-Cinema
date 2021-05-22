@@ -40,6 +40,6 @@ namespace Gerenciador_de_Cinema.Models
         // public int id { get; set; }
 
 
-        
+
     }
 }

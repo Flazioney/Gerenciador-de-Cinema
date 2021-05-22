@@ -1,9 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
-using Microsoft.AspNetCore.Http;
 
 namespace Gerenciador_de_Cinema.Models
 {
@@ -26,7 +26,7 @@ namespace Gerenciador_de_Cinema.Models
         //[DataType(DataType.Time)]
         public TimeSpan duracao { get; set; }
 
-        
+        [Display(Name = "Cartaz")]
         public byte[] Dados { get; set; }
 
         // public string ContentType { get; set; }

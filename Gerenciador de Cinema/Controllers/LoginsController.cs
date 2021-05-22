@@ -31,9 +31,22 @@ namespace Gerenciador_de_Cinema.Controllers
         // GET: Logins
         public async Task<IActionResult> Index()
         {
+
+            var sessao = await _context.Sessao.ToListAsync();
+            var salas = await _context.Salas.ToListAsync();
+            var filmes = await _context.Filmes.ToListAsync();
             return View();
 
-         
+
+        }
+
+        public async Task<IActionResult> Cartaz()
+        {
+            var sessao = await _context.Sessao.ToListAsync();
+            var salas = await _context.Salas.ToListAsync();
+            var filmes = await _context.Filmes.ToListAsync();
+
+            return View(sessao);
         }
 
         // GET: Logins/Details/5
@@ -91,7 +104,7 @@ namespace Gerenciador_de_Cinema.Controllers
             }
             return View(login);
         }
-   
+
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
@@ -118,8 +131,8 @@ namespace Gerenciador_de_Cinema.Controllers
         [HttpGet]
         public IActionResult Menu()
         {
-            return RedirectToAction(nameof(Index));
-        }      
+            return RedirectToAction(nameof(Cartaz));
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -132,7 +145,7 @@ namespace Gerenciador_de_Cinema.Controllers
             {
                 string LoginStatus = _autentica.ValidarLogin(login);
 
-               
+
                 if (LoginStatus == "Sucesso")
                 {
                     var claims = new List<Claim>
@@ -146,7 +159,7 @@ namespace Gerenciador_de_Cinema.Controllers
                     await HttpContext.SignInAsync(principal);
 
                     if (User.Identity.IsAuthenticated)
-                        return RedirectToAction("Index", "Sessaos");
+                        return RedirectToAction(nameof(Cartaz));
                     else
                     {
                         TempData["LoginFalhou"] = "O login Falhou. Informe as credenciais corretas " + User.Identity.Name;
@@ -156,16 +169,24 @@ namespace Gerenciador_de_Cinema.Controllers
                 else
                 {
                     TempData["LoginFalhou"] = "O login Falhou. Informe as credenciais corretas";
-                    return View();
+                    var sessao = await _context.Sessao.ToListAsync();
+                    var salas = await _context.Salas.ToListAsync();
+                    var filmes = await _context.Filmes.ToListAsync();
+
+                    return View(sessao);
                 }
             }
             else
             {
-                return View();
+                var sessao = await _context.Sessao.ToListAsync();
+                var salas = await _context.Salas.ToListAsync();
+                var filmes = await _context.Filmes.ToListAsync();
+
+                return View(sessao);
             }
+
+
         }
-
-
 
         // POST: Logins/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -235,5 +256,10 @@ namespace Gerenciador_de_Cinema.Controllers
         {
             return _context.Login.Any(e => e.id_login == id);
         }
+        private bool SessaoExists(int id)
+        {
+            return _context.Sessao.Any(e => e.id_sessao == id);
+        }
+
     }
 }

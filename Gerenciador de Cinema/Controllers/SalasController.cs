@@ -1,7 +1,10 @@
 ﻿using Gerenciador_de_Cinema.Data;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+
 
 namespace Gerenciador_de_Cinema.Controllers
 {
@@ -20,6 +23,12 @@ namespace Gerenciador_de_Cinema.Controllers
             return View(await _context.Salas.ToListAsync());
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction(nameof(Index));
+        }
         // GET: Salas/Details/5
         public async Task<IActionResult> Details(int? id)
         {

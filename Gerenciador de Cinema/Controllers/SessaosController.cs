@@ -1,18 +1,11 @@
 ﻿using Gerenciador_de_Cinema.Data;
 using Gerenciador_de_Cinema.Models;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.IO;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Threading.Tasks;
 
 
 namespace Gerenciador_de_Cinema.Controllers
@@ -39,6 +32,17 @@ namespace Gerenciador_de_Cinema.Controllers
 
             return View(sessao);
         }
+
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Logins");
+        }
+
 
         // GET: Sessaos/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -74,7 +78,7 @@ namespace Gerenciador_de_Cinema.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_sessao,data_exb,hr_ini,valor_ing,id_filme,id_sala")] Sessao sessao)
         {
-            
+
 
             if (ModelState.IsValid)
             {
@@ -147,9 +151,9 @@ namespace Gerenciador_de_Cinema.Controllers
             }
 
             var sessao = await _context.Sessao.FindAsync(id);
-                     //.FirstOrDefaultAsync(m => m.id_sessao == id);
+            //.FirstOrDefaultAsync(m => m.id_sessao == id);
 
-           
+
             if (sessao == null)
             {
                 return NotFound();
@@ -157,11 +161,11 @@ namespace Gerenciador_de_Cinema.Controllers
 
             var q = _autentica.DeletarSessoes(id);
 
-            TempData["Erro"] = "Não pode ser excluido com menos de 10 dias id sessão " + q ;
+            TempData["Erro"] = "Não pode ser excluido com menos de 10 dias id sessão " + q;
             return RedirectToAction(nameof(Index));
 
             //return View(sessao);
-            
+
 
         }
 
@@ -171,6 +175,6 @@ namespace Gerenciador_de_Cinema.Controllers
         }
 
 
-      
+
     }
 }

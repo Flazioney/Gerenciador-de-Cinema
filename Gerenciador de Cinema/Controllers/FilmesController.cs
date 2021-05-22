@@ -1,19 +1,13 @@
 ﻿using Gerenciador_de_Cinema.Data;
 using Gerenciador_de_Cinema.Models;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 
 namespace Gerenciador_de_Cinema.Controllers
@@ -55,6 +49,13 @@ namespace Gerenciador_de_Cinema.Controllers
             return View(filmes);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Logins");
+        }
+
         // GET: Filmes/Create
         public IActionResult Create()
         {
@@ -67,22 +68,22 @@ namespace Gerenciador_de_Cinema.Controllers
         [HttpPost]
         public IActionResult Create(Filmes filmes, IFormFile Img, [FromServices] Gerenciador_de_CinemaContext db)
         {
-                
-                filmes.Dados = Img.ToByteArray();
-                filmes.Length = (int)Img.Length;
-                filmes.Extension = Img.GetExtension();
-                filmes.ContentType = Img.ContentType;
-                db.Filmes.Add(filmes);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-           
+
+            filmes.Dados = Img.ToByteArray();
+            filmes.Length = (int)Img.Length;
+            filmes.Extension = Img.GetExtension();
+            filmes.ContentType = Img.ContentType;
+            db.Filmes.Add(filmes);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
 
 
         [HttpGet]
         [ResponseCache(Duration = 3600)]
         public FileResult Render(int id, [FromServices] Gerenciador_de_CinemaContext db)
-        {            
+        {
 
             var item = db.Filmes
                 .Where(x => x.id_filme == id)

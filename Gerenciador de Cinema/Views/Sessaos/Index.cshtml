@@ -4,7 +4,7 @@
     ViewData["Title"] = "Sessoes";
 }
 
-<h2>Sessoes</h2>
+<h2>Sessões</h2>
 
 <p>
     <a asp-action="Create">Cadastrar um novo</a>
@@ -25,10 +25,13 @@
                 @Html.DisplayNameFor(model => model.valor_ing)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Salas.Nome)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Filmes.Titulo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Salas.Nome)
+                @Html.DisplayNameFor(model => model.Filmes.Dados)
             </th>
             <th></th>
         </tr>
@@ -49,14 +52,17 @@
                 @Html.DisplayFor(modelItem => item.valor_ing)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Filmes.Titulo)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Salas.Nome)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Filmes.Titulo)
+            </td>
+            <td>
+                <img src="@Url.Action("Models.Render", "Filmes", new { item.id_filme })"
+                     style="width:100px; height:100px" />
+            </td>
+            <td>
                 <a asp-action="Edit" asp-route-id="@item.id_sessao">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.id_sessao">Detalhes</a> |
                 <a asp-action="Delete" asp-route-id="@item.id_sessao">Deletar</a>
             </td>
         </tr>

@@ -64,11 +64,11 @@ namespace Gerenciador_de_Cinema.Models
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@dataexb", sessao.data_exb);
-                cmd.Parameters.AddWithValue("@hrini", sessao.hr_ini);               
+                cmd.Parameters.AddWithValue("@hrini", sessao.hr_ini);
                 cmd.Parameters.AddWithValue("@valoring", sessao.valor_ing);
                 cmd.Parameters.AddWithValue("@idfilme", sessao.id_filme);
                 cmd.Parameters.AddWithValue("@idsala", sessao.id_sala);
-                
+
                 con.Open();
 
                 string resultado = cmd.ExecuteScalar().ToString();
@@ -79,7 +79,7 @@ namespace Gerenciador_de_Cinema.Models
             }
         }
 
-        public string UpdateFilme(Filmes filmes) 
+        public string UpdateFilme(Filmes filmes)
         {
             using (SqlConnection con = new SqlConnection(GetConexao()))
             {
@@ -87,7 +87,7 @@ namespace Gerenciador_de_Cinema.Models
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Tid", filmes.id_filme);
                 cmd.Parameters.AddWithValue("@Titulo", filmes.Titulo);
-                cmd.Parameters.AddWithValue("@Descricao",filmes.Descricao);
+                cmd.Parameters.AddWithValue("@Descricao", filmes.Descricao);
                 cmd.Parameters.AddWithValue("@duracao", filmes.duracao);
                 cmd.Parameters.AddWithValue("@dados", filmes.Dados);
                 cmd.Parameters.AddWithValue("@ContentType", filmes.ContentType);

@@ -11,6 +11,6 @@ namespace Gerenciador_de_Cinema.Models
 
         [Display(Name = "Qtd. Assentos")]
         public int qtd_assentos { get; set; }
-       
+
     }
 }
